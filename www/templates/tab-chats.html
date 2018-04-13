@@ -1,0 +1,15 @@
+<ion-view view-title="List Videos">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="list_video in list_videos" type="item-text-wrap">
+        <img ng-src="{{list_video.images.thumbnail.src}}">
+        <h2>{{list_video.id}}</h2>
+        <p>{{list_video.name}}</p>
+<a href="#/tab/chats/{{list_video.id}}">
+<i class="icon ion-chevron-right icon-accessory" ion-item detail-none >
+</i>
+</a>
+<i class="icon ion-ios-heart-outline" ng-click="changeFavorite()"></i>
+    </ion-list>
+  </ion-content>
+</ion-view>
