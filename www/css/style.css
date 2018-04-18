@@ -1,4 +1,8 @@
 /* Empty. Add your own CSS if you like */
-.ion-ios-heart-outline{
-    color: red;
+
+.ion-ios-heart-outline,
+.ion-ios-heart {
+    color: rgb(204, 109, 109);
+    margin-left: 5%;
+    margin-right: 5%;
 }
