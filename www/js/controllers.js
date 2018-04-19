@@ -86,23 +86,7 @@ angular.module('starter.controllers', [])
             }
         }
     });
-    var my_media = new Media($scope.normalSrc, onSuccess, onError);
-    my_media.startRecord();
 
-    mediaTimer = setInterval(function() {
-        // get media amplitude
-        my_media.getCurrentAmplitude(
-            // success callback
-            function(amp) {
-                console.log(amp + "%");
-            },
-            // error callback
-            function(e) {
-                console.log("Error getting amp=" + e);
-            }
-        );
-    }, 1000);
-    console.log(my_media)
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
