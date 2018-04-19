@@ -15,7 +15,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onDeviceReady() {
+            console.log(Media);
+        }
+    </script>
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 

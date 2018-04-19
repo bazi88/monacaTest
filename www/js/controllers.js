@@ -1,5 +1,5 @@
-angular.module('starter.controllers', ['ngStorage'])
-    .controller('DashCtrl', function($scope, $localStorage, $rootScope, $timeout, $ionicTabsDelegate) {
+angular.module('starter.controllers', [])
+    .controller('DashCtrl', function($scope, $rootScope, $timeout, $ionicTabsDelegate) {
         $scope.list_favorites = [];
         $scope.doRefresh = function() {
 
@@ -10,16 +10,9 @@ angular.module('starter.controllers', ['ngStorage'])
                 $scope.$broadcast('scroll.refreshComplete');
             }, 300)
         }
-        var init = function() {
-            console.log($localStorage);
-        }
-        init();
-        $scope.init = function() {
-            console.log($localStorage);
-        }
     })
 
-.controller('ChatsCtrl', function($scope, Chats, $http, $rootScope, $localStorage, $q) {
+.controller('ChatsCtrl', function($scope, Chats, $http, $rootScope, $q) {
     $scope.is_list_videos = [];
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
@@ -93,7 +86,23 @@ angular.module('starter.controllers', ['ngStorage'])
             }
         }
     });
+    var my_media = new Media($scope.normalSrc, onSuccess, onError);
+    my_media.startRecord();
 
+    mediaTimer = setInterval(function() {
+        // get media amplitude
+        my_media.getCurrentAmplitude(
+            // success callback
+            function(amp) {
+                console.log(amp + "%");
+            },
+            // error callback
+            function(e) {
+                console.log("Error getting amp=" + e);
+            }
+        );
+    }, 1000);
+    console.log(my_media)
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
